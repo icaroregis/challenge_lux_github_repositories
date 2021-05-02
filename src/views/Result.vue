@@ -5,7 +5,7 @@
       <SearchMagnifyingGlassTwo />
     </div>
     <section class="chief-container">
-      <div class="son-chief-container">
+      <div v-for="user in user" :key="user.id" class="son-chief-container">
         <img class="image-user" src="" alt="" />
         <h1 class="result-title">Lidenberg</h1>
         <h3 class="result-title-secundary">lidenberg</h3>
@@ -53,6 +53,7 @@
         <div class="user-information">
           <img class="icons" src="../assets/stars.png" alt="estrelas" />
           <h6 class="text-icons">Número da estrela</h6>
+          <button @click="getName">teste</button>
         </div>
       </div>
     </section>
@@ -66,15 +67,23 @@ import SearchMagnifyingGlassTwo from '../components/SearchMagnifyingGlassTwo/ind
 export default {
   name: 'Result',
   components: { TitleBoldAndItalicTwo, SearchMagnifyingGlassTwo },
-  methods: {
-    getName() {
-      const resultado = this.$router.push({ name: 'Result' });
-      console.log(resultado);
-    },
+  data() {
+    return {
+      user: [],
+      name: '',
+      login: '',
+      company: '',
+      location: '',
+      public_repos: '',
+      followers: '',
+      avatar_url: {
+        url: '"https://avatars.githubusercontent.com/u/62527468?v=4",',
+        titulo: 'fotoDoUsuario',
+      },
+    };
   },
-  mounted() {
-    // this.$router.push({ name: 'Home' });
-  },
+  methods: {},
+  mounted() {},
 };
 </script>
 
