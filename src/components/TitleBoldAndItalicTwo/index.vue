@@ -2,7 +2,7 @@
   <div>
     <img
       class="image-title"
-      src="../../assets/Github Search.png"
+      src="../../assets/GithubSearchTwo.png"
       alt="githubSearch"
     />
   </div>
@@ -10,13 +10,13 @@
 
 <script>
 export default {
-  name: 'TitleBoldAndItalic ',
+  name: 'TitleBoldAndItalicTwo',
 };
 </script>
 
 <style scoped lang="scss">
 .image-title {
-  width: 200px;
-  height: 25px;
+  width: 160px;
+  height: 18px;
 }
 </style>

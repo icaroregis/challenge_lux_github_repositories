@@ -17,10 +17,10 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  max-width: 1200px;
+  max-width: 800px;
   width: 100%;
-  height: 555px;
-  margin: 35px auto;
+  height: 570px;
+  margin: 25px auto;
   display: flex;
   justify-content: center;
   align-items: center;

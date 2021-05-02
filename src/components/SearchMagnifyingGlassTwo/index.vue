@@ -1,11 +1,11 @@
 <template>
-  <form @submit="goForPageResult" class="div-search">
+  <form class="div-search">
     <input class="div-search-child" />
     <div class="div-son-of-son">
       <img
         type="submit"
         class="image-lupa"
-        src="../../assets/search.svg"
+        src="../../assets/SearchTwo.png"
         alt="lupa"
       />
     </div>
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'SearchMagnifyingGlass',
+  name: 'SearchMagnifyingGlassTwo',
   methods: {
     goForPageResult() {
       this.$router.push('/searchrepositories');
@@ -28,25 +28,24 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
 }
 .div-search-child {
-  width: 300px;
-  padding: 10px;
+  width: 310px;
+  padding: 5px;
   font-size: 17px;
-  height: 30px;
+  height: 28px;
   border: 2px solid var(--black-dark);
 }
 .div-son-of-son {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 64px;
-  height: 30px;
+  width: 58px;
+  height: 28px;
   background-color: var(--black-dark);
 }
 .image-lupa {
-  width: 20px;
-  height: 20px;
+  width: 17px;
+  height: 17px;
 }
 </style>
