@@ -53,7 +53,6 @@
         <div class="user-information">
           <img class="icons" src="../assets/stars.png" alt="estrelas" />
           <h6 class="text-icons">Número da estrela</h6>
-          <button @click="getName">teste</button>
         </div>
       </div>
     </section>
@@ -141,6 +140,7 @@ export default {
 }
 .son-chief-container {
   margin-right: 40px;
+  border: 1px solid black;
 }
 .text-project {
   margin-bottom: 5px;
