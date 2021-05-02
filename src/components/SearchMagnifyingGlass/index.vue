@@ -1,10 +1,10 @@
 <template>
-  <form @submit.prevent="goForPageResult" class="search">
+  <form @submit="goForPageResult" class="search">
     <input
-      id="name"
-      v-model="users.name"
-      type="text"
       class="search-input"
+      id="name"
+      v-model="user.name"
+      type="text"
       required
     />
     <button type="submit" class="search-button">
@@ -18,14 +18,15 @@ export default {
   name: 'SearchMagnifyingGlass',
   data() {
     return {
-      users: {
+      user: {
         name: '',
       },
     };
   },
+
   methods: {
     goForPageResult() {
-      this.$router.push('/searchrepositories');
+      this.$router.push(`/repositories/${this.user.name}`);
     },
   },
 };

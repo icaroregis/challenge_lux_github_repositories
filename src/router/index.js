@@ -12,12 +12,12 @@ const routes = [
     component: Home,
   },
   {
-    path: '/searchrepositories',
+    path: '/repositories',
     name: 'Result',
     component: Result,
   },
   {
-    path: '/searchrepositories/:name',
+    path: '/repositories/:name',
     name: 'Result',
     component: Result,
   },

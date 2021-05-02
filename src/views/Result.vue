@@ -66,8 +66,14 @@ import SearchMagnifyingGlassTwo from '../components/SearchMagnifyingGlassTwo/ind
 export default {
   name: 'Result',
   components: { TitleBoldAndItalicTwo, SearchMagnifyingGlassTwo },
+  methods: {
+    getName() {
+      const resultado = this.$router.push({ name: 'Result' });
+      console.log(resultado);
+    },
+  },
   mounted() {
-    this.$router.push({ name: 'Home' });
+    // this.$router.push({ name: 'Home' });
   },
 };
 </script>
