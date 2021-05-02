@@ -1,14 +1,9 @@
 <template>
-  <form @submit="goForPageResult" class="div-search">
-    <input class="div-search-child" />
-    <div class="div-son-of-son">
-      <img
-        type="submit"
-        class="image-lupa"
-        src="../../assets/search.svg"
-        alt="lupa"
-      />
-    </div>
+  <form @submit="goForPageResult" class="search">
+    <input class="search-input" />
+    <button type="submit" class="search-button">
+      <img class="search-lupa" src="../../assets/search.svg" alt="lupa" />
+    </button>
   </form>
 </template>
 
@@ -24,20 +19,20 @@ export default {
 </script>
 
 <style scoped>
-.div-search {
+.search {
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid black;
 }
-.div-search-child {
+.search-input {
   width: 300px;
   padding: 10px;
   font-size: 17px;
   height: 30px;
   border: 2px solid var(--black-dark);
 }
-.div-son-of-son {
+.search-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,8 +40,8 @@ export default {
   height: 30px;
   background-color: var(--black-dark);
 }
-.image-lupa {
-  width: 20px;
-  height: 20px;
+.search-lupa {
+  width: 15px;
+  height: 15px;
 }
 </style>

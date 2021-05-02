@@ -7,8 +7,8 @@
     <section class="chief-container">
       <div class="son-chief-container">
         <img class="image-user" src="" alt="" />
-        <h1>Lidenberg</h1>
-        <h3>Lidenberg</h3>
+        <h1 class="result-title">Lidenberg</h1>
+        <h3 class="result-title-secundary">lidenberg</h3>
 
         <div class="icons-image">
           <div class="user-information">
@@ -17,15 +17,15 @@
               src="../assets/organization.png"
               alt="organização"
             />
-            <h6>Nome da Organizaçao</h6>
+            <h6 class="text-icons">Nome da Organizaçao</h6>
           </div>
           <div class="user-information">
             <img class="icons" src="../assets/location.png" alt="localização" />
-            <h6>Capítal</h6>
+            <h6 class="text-icons">Capítal</h6>
           </div>
           <div class="user-information">
             <img class="icons" src="../assets/stars.png" alt="estrela" />
-            <h6 class="number-of-statistics">Numero da estrela</h6>
+            <h6 class="text-icons">Numero da estrela</h6>
           </div>
           <div class="user-information">
             <img
@@ -33,11 +33,11 @@
               src="../assets/repository.png"
               alt="respositórios"
             />
-            <h6>Qtde de repositórios</h6>
+            <h6 class="text-icons">Qtde de repositórios</h6>
           </div>
           <div class="user-information">
             <img class="icons" src="../assets/followers.png" alt="" />
-            <h6>Qtde de segidores</h6>
+            <h6 class="text-icons">Qtde de segidores</h6>
           </div>
         </div>
       </div>
@@ -52,7 +52,7 @@
         </p>
         <div class="user-information">
           <img class="icons" src="../assets/stars.png" alt="estrelas" />
-          <h6>Número da estrela</h6>
+          <h6 class="text-icons">Número da estrela</h6>
         </div>
       </div>
     </section>
@@ -126,5 +126,12 @@ export default {
 }
 .text-project {
   margin-bottom: 5px;
+  color: var(--grey-light);
+}
+.result-title-secundary {
+  color: var(--grey-light);
+}
+.text-icons {
+  color: var(--grey-light);
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="container-image-title">
     <img
       class="image-title"
-      src="../../assets/Github Search.png"
+      src="../../assets/Github Search2.svg"
       alt="githubSearch"
     />
   </div>
@@ -16,7 +16,10 @@ export default {
 
 <style scoped lang="scss">
 .image-title {
-  width: 200px;
-  height: 25px;
+  width: 220px;
+  height: 30px;
+}
+.container-image-title {
+  margin-bottom: 5px;
 }
 </style>

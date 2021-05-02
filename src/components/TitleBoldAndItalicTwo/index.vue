@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container-image-title">
     <img
       class="image-title"
       src="../../assets/GithubSearchTwo.png"
