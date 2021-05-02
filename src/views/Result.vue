@@ -5,8 +5,12 @@
       <SearchMagnifyingGlassTwo />
     </div>
     <section class="chief-container">
-      <div v-for="user in user" :key="user.id" class="son-chief-container">
-        <img class="image-user" src="" alt="" />
+      <div
+        v-for="gitUser in user"
+        :key="gitUser.id"
+        class="son-chief-container"
+      >
+        <img class="image-user" :src="gitUser.avatar_url" alt="foto" />
         <h1 class="result-title">Lidenberg</h1>
         <h3 class="result-title-secundary">lidenberg</h3>
 
