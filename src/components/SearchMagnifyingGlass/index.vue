@@ -23,6 +23,11 @@ export default {
       },
     };
   },
+  methods: {
+    goForPageResult() {
+      this.$router.push(`/repositories/${this.user.name}`);
+    },
+  },
 };
 </script>
 
