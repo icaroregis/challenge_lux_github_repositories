@@ -10,7 +10,7 @@ import TitleBoldAndItalic from '../components/TitleBoldAndItalic/index';
 import SearchMagnifyingGlass from '../components/SearchMagnifyingGlass/index';
 
 export default {
-  name: 'home',
+  name: 'Home',
   components: { TitleBoldAndItalic, SearchMagnifyingGlass },
 };
 </script>

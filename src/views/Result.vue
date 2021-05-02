@@ -64,8 +64,11 @@ import TitleBoldAndItalicTwo from '../components/TitleBoldAndItalicTwo/index';
 import SearchMagnifyingGlassTwo from '../components/SearchMagnifyingGlassTwo/index';
 
 export default {
-  name: 'result',
+  name: 'Result',
   components: { TitleBoldAndItalicTwo, SearchMagnifyingGlassTwo },
+  mounted() {
+    this.$router.push({ name: 'Home' });
+  },
 };
 </script>
 

@@ -1,6 +1,12 @@
 <template>
-  <form @submit="goForPageResult" class="search">
-    <input class="search-input" />
+  <form @submit.prevent="goForPageResult" class="search">
+    <input
+      id="name"
+      v-model="users.name"
+      type="text"
+      class="search-input"
+      required
+    />
     <button type="submit" class="search-button">
       <img class="search-lupa" src="../../assets/search.svg" alt="lupa" />
     </button>
@@ -10,6 +16,13 @@
 <script>
 export default {
   name: 'SearchMagnifyingGlass',
+  data() {
+    return {
+      users: {
+        name: '',
+      },
+    };
+  },
   methods: {
     goForPageResult() {
       this.$router.push('/searchrepositories');

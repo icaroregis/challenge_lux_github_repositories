@@ -8,12 +8,17 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
     component: Home,
   },
   {
     path: '/searchrepositories',
-    name: 'result',
+    name: 'Result',
+    component: Result,
+  },
+  {
+    path: '/searchrepositories/:name',
+    name: 'Result',
     component: Result,
   },
 ];
