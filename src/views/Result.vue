@@ -6,9 +6,9 @@
     </div>
     <section class="chief-container">
       <div class="son-chief-container">
-        <img class="image-user" alt="foto" />
-        <h1 class="result-title">Lidenberg</h1>
-        <h3 class="result-title-secundary">lidenberg</h3>
+        <img class="image-user" :src="user.avatar_url" alt="foto" />
+        <p class="result-title">{{ user.name }}</p>
+        <h3 class="result-title-secundary">{{ user.login }}</h3>
 
         <div class="icons-image">
           <div class="user-information">
@@ -17,15 +17,15 @@
               src="../assets/organization.png"
               alt="organização"
             />
-            <h6 class="text-icons">Nome da Organizaçao</h6>
+            <h6 class="text-icons">{{ user.company }}</h6>
           </div>
           <div class="user-information">
             <img class="icons" src="../assets/location.png" alt="localização" />
-            <h6 class="text-icons">Capítal</h6>
+            <h6 class="text-icons">{{ user.location }}</h6>
           </div>
           <div class="user-information">
             <img class="icons" src="../assets/stars.png" alt="estrela" />
-            <h6 class="text-icons">Numero da estrela</h6>
+            <h6 class="text-icons">teste</h6>
           </div>
           <div class="user-information">
             <img
@@ -33,27 +33,35 @@
               src="../assets/repository.png"
               alt="respositórios"
             />
-            <h6 class="text-icons">Qtde de repositórios</h6>
+            <h6 class="text-icons">{{ user.public_repos }}</h6>
           </div>
           <div class="user-information">
             <img class="icons" src="../assets/followers.png" alt="" />
-            <h6 class="text-icons">Qtde de segidores</h6>
+            <h6 class="text-icons">{{ user.followers }}</h6>
           </div>
         </div>
       </div>
 
       <div class="user-projects">
-        <h1>Título do projeto</h1>
-        <p class="text-project">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat
-          ornare justo quis placerat. Etiam sollicitudin lectus sed ante
-          vulputate lobortis. Curabitur vitae vehicula diam. Integer quis
-          iaculis libero. Nulla.
-        </p>
-        <div class="user-information">
-          <img class="icons" src="../assets/stars.png" alt="estrelas" />
-          <h6 class="text-icons">Número da estrela</h6>
-        </div>
+        <ul>
+          <li>
+            <h1>Título do projeto</h1>
+          </li>
+          <li>
+            <p class="text-project">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+              feugiat ornare justo quis placerat. Etiam sollicitudin lectus sed
+              ante vulputate lobortis. Curabitur vitae vehicula diam. Integer
+              quis iaculis libero. Nulla.
+            </p>
+          </li>
+          <li>
+            <div class="user-information">
+              <img class="icons" src="../assets/stars.png" alt="estrelas" />
+              <h6 class="text-icons">Número da estrela</h6>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
   </div>
@@ -62,6 +70,7 @@
 <script>
 import TitleBoldAndItalicTwo from '../components/TitleBoldAndItalicTwo/index';
 import SearchMagnifyingGlassTwo from '../components/SearchMagnifyingGlassTwo/index';
+import api from '../services/api';
 
 export default {
   name: 'Result',
@@ -76,13 +85,18 @@ export default {
       public_repos: '',
       followers: '',
       avatar_url: {
-        url: '"https://avatars.githubusercontent.com/u/62527468?v=4",',
-        titulo: 'fotoDoUsuario',
+        url: 'https://avatars.githubusercontent.com/u/62527468?v=4',
+        titulo: 'foto',
       },
     };
   },
   methods: {},
-  mounted() {},
+  mounted() {
+    let username = `${this.$route.params.name}`;
+    api.get(username).then((response) => {
+      this.user = response.data;
+    });
+  },
 };
 </script>
 
@@ -113,7 +127,6 @@ export default {
 .image-user {
   width: 160px;
   height: 160px;
-  border: 1px solid black;
 }
 .user-information {
   display: flex;
@@ -139,8 +152,8 @@ export default {
   display: flex;
 }
 .son-chief-container {
+  width: 160px;
   margin-right: 40px;
-  border: 1px solid black;
 }
 .text-project {
   margin-bottom: 5px;
@@ -151,5 +164,11 @@ export default {
 }
 .text-icons {
   color: var(--grey-light);
+}
+.result-title {
+  font-size: 25px;
+}
+li {
+  list-style: none;
 }
 </style>
