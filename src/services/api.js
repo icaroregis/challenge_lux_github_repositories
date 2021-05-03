@@ -1,14 +1,7 @@
-// import axios from 'axios';
+import axios from 'axios';
 
-// const api = axios.create({
-//   baseURL: 'https://api.github.com/users/',
-// });
+const api = axios.create({
+  baseURL: 'https://api.github.com/',
+});
 
-// export default {
-//   getInformations: (params) =>
-//     axios.get(`/https://api.github.com/users/${params}`),
-
-//   getRepositories: (params) =>
-//     axios.get(`/https://api.github.com/users/${params}/repos`),
-//   // etc.
-// };
+export default api;

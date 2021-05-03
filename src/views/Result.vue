@@ -25,7 +25,7 @@
           </div>
           <div class="user-information">
             <img class="icons" src="../assets/stars.png" alt="estrela" />
-            <h6 class="text-icons">teste</h6>
+            <h6 class="text-icons">{{ user.public_repos }}</h6>
           </div>
           <div class="user-information">
             <img
@@ -43,22 +43,19 @@
       </div>
 
       <div class="user-projects">
-        <ul>
+        <ul v-for="repository in repositories" :key="repository.id">
           <li>
-            <h1>Título do projeto</h1>
+            <h1>{{ repository.name }}</h1>
           </li>
           <li>
             <p class="text-project">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-              feugiat ornare justo quis placerat. Etiam sollicitudin lectus sed
-              ante vulputate lobortis. Curabitur vitae vehicula diam. Integer
-              quis iaculis libero. Nulla.
+              {{ repository.description }}
             </p>
           </li>
           <li>
             <div class="user-information">
               <img class="icons" src="../assets/stars.png" alt="estrelas" />
-              <h6 class="text-icons">Número da estrela</h6>
+              <h6 class="text-icons">{{ repository.watchers }}</h6>
             </div>
           </li>
         </ul>
@@ -70,7 +67,8 @@
 <script>
 import TitleBoldAndItalicTwo from '../components/TitleBoldAndItalicTwo/index';
 import SearchMagnifyingGlassTwo from '../components/SearchMagnifyingGlassTwo/index';
-import axios from 'axios';
+// import axios from 'axios';
+import api from '../services/api';
 
 export default {
   name: 'Result',
@@ -93,28 +91,15 @@ export default {
   },
   methods: {},
   mounted() {
-    axios
-      .get(`/https://api.github.com/users/${this.$route.params.name}`)
-      .then((response) => {
-        this.user = response.data;
-        console.log(response.data);
-      });
+    api.get(`users/${this.$route.params.name}`).then((response) => {
+      this.user = response.data;
+      console.log(response.data);
+    });
 
-    // axios
-    //   .get(`/https://api.github.com/users/${this.$route.params.login}/repos`)
-    //   .then((response) => {
-    //     this.repositories = response.data;
-    //     console.log(response.data);
-    //   });
-
-    // getInformations(userlogin).then((response) => {
-    //   this.user = response.data;
-    //   console.log(response.data);
-    // });
-    // getRepositories(username).then((response) => {
-    //   this.repositories = response.data;
-    //   console.log(response.data);
-    // });
+    api.get(`users/${this.$route.params.name}/repos`).then((response) => {
+      this.repositories = response.data;
+      console.log(response.data);
+    });
   },
 };
 </script>
