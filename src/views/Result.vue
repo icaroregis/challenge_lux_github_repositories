@@ -43,9 +43,13 @@
       </div>
 
       <div class="user-projects">
-        <ul v-for="repository in repositories" :key="repository.id">
+        <ul
+          class="list-li"
+          v-for="repository in repositories"
+          :key="repository.id"
+        >
           <li>
-            <h1>{{ repository.name }}</h1>
+            <p class="name-repository">{{ repository.name }}</p>
           </li>
           <li>
             <p class="text-project">
@@ -162,17 +166,25 @@ export default {
 .text-project {
   margin-bottom: 5px;
   color: var(--grey-light);
+  font-size: 17px;
 }
 .result-title-secundary {
   color: var(--grey-light);
 }
 .text-icons {
   color: var(--grey-light);
+  font-size: 11px;
 }
 .result-title {
   font-size: 25px;
 }
 li {
   list-style: none;
+}
+.list-li {
+  margin-bottom: 15px;
+}
+.name-repository {
+  font-size: 20px;
 }
 </style>
