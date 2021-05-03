@@ -70,7 +70,7 @@
 <script>
 import TitleBoldAndItalicTwo from '../components/TitleBoldAndItalicTwo/index';
 import SearchMagnifyingGlassTwo from '../components/SearchMagnifyingGlassTwo/index';
-import { getInformations, getRepositories } from '../services/api';
+import axios from 'axios';
 
 export default {
   name: 'Result',
@@ -93,15 +93,28 @@ export default {
   },
   methods: {},
   mounted() {
-    let username = `${this.$route.params.name}`;
-    getInformations(username).then((response) => {
-      this.user = response.data;
-      console.log(response.data);
-    });
-    getRepositories(username).then((response) => {
-      this.repositories = response.data;
-      console.log(response.data);
-    });
+    axios
+      .get(`/https://api.github.com/users/${this.$route.params.name}`)
+      .then((response) => {
+        this.user = response.data;
+        console.log(response.data);
+      });
+
+    // axios
+    //   .get(`/https://api.github.com/users/${this.$route.params.login}/repos`)
+    //   .then((response) => {
+    //     this.repositories = response.data;
+    //     console.log(response.data);
+    //   });
+
+    // getInformations(userlogin).then((response) => {
+    //   this.user = response.data;
+    //   console.log(response.data);
+    // });
+    // getRepositories(username).then((response) => {
+    //   this.repositories = response.data;
+    //   console.log(response.data);
+    // });
   },
 };
 </script>
