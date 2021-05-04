@@ -71,7 +71,7 @@
 <script>
 import TitleBoldAndItalicTwo from '../components/TitleBoldAndItalicTwo/index';
 import SearchMagnifyingGlassTwo from '../components/SearchMagnifyingGlassTwo/index';
-import axios from 'axios';
+// import axios from 'axios';
 
 export default {
   name: 'Result',
@@ -80,7 +80,7 @@ export default {
     return {
       user: [],
       repositories: [],
-      userRepositories: [...this.user, ...this.repositories],
+      userRepositories: [],
       name: '',
       login: '',
       company: '',
@@ -105,16 +105,20 @@ export default {
         this.repositories = response.data;
       });
 
-    axios
-      .post(
-        'https://salve-github-database-default-rtdb.firebaseio.com/userRepositories.json',
-        this.repositories
-      )
-      .then(() => {
-        this.repositories.name = '';
-        this.repositories.description = '';
-        this.repositories.watchers = '';
-      });
+    // axios
+    //   .post(
+    //     'https://salve-github-database-default-rtdb.firebaseio.com/userRepositories.json',
+    //     this.repositories
+    //   )
+    //   .then(() => {
+    //     this.repositories.name = '';
+    //     this.repositories.description = '';
+    //     this.repositories.watchers = '';
+    //   });
+  },
+  updated() {
+    this.userRepositories = [...this.user, ...this.repositories];
+    console.log('teste', this.userRepositories);
   },
 };
 </script>
@@ -123,7 +127,6 @@ export default {
 .container {
   max-width: 800px;
   width: 100%;
-  height: 570px;
   margin: 25px auto;
   display: flex;
   flex-direction: column;
