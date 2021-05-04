@@ -97,12 +97,10 @@ export default {
   mounted() {
     api.get(`users/${this.$route.params.name}`).then((response) => {
       this.user = response.data;
-      console.log(response.data);
     });
 
     api.get(`users/${this.$route.params.name}/repos`).then((response) => {
       this.repositories = response.data;
-      console.log(response.data);
     });
   },
 };
