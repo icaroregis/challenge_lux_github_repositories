@@ -78,9 +78,9 @@ export default {
   components: { TitleBoldAndItalicTwo, SearchMagnifyingGlassTwo },
   data() {
     return {
-      user: [],
-      repositories: [],
-      userRepositories: [],
+      user: {},
+      repositories: {},
+      userRepositories: '',
       name: '',
       login: '',
       company: '',
@@ -111,22 +111,14 @@ export default {
         'https://salve-github-database-default-rtdb.firebaseio.com/userRepositories.json',
         this.repositories
       )
-      .then(() => {
-        this.userRepositories.name = '';
-        this.userRepositories.login = '';
-        this.userRepositories.company = '';
-        this.userRepositories.location = '';
-        this.userRepositories.public_repos = '';
-        this.userRepositories.followers = '';
-        this.userRepositories.avatar_url = '';
-        this.userRepositories.name = '';
-        this.userRepositories.description = '';
-        this.userRepositories.watchers = '';
-      });
+      .then(() => {});
   },
-  updated() {
-    this.userRepositories = [...this.user, ...this.repositories];
-    console.log('teste', this.userRepositories);
+  beforeUpdate() {
+    const testeOne = Object.values(this.user);
+    const testTwo = Object.values(this.repositories);
+
+    if (testeOne.length > 0 && testTwo.length > 0)
+      this.userRepositories = [...testeOne, ...testTwo];
   },
 };
 </script>
