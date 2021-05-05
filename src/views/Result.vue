@@ -71,33 +71,26 @@
 <script>
 import TitleBoldAndItalicTwo from '../components/TitleBoldAndItalicTwo/index';
 import SearchMagnifyingGlassTwo from '../components/SearchMagnifyingGlassTwo/index';
-import axios from 'axios';
 
 export default {
   name: 'Result',
   components: { TitleBoldAndItalicTwo, SearchMagnifyingGlassTwo },
   data() {
     return {
-      user: {},
-      repositories: {},
-      userRepositories: '',
-      name: '',
-      login: '',
-      company: '',
-      location: '',
-      public_repos: '',
-      followers: '',
+      user: [],
+      repositories: [],
+      userRepositories: [],
       avatar_url: {
         url: 'https://avatars.githubusercontent.com/u/62527468?v=4',
         titulo: 'foto',
       },
+      description: '',
     };
   },
   methods: {},
   mounted() {
     this.$http.get(`users/${this.$route.params.name}`).then((response) => {
       this.user = response.data;
-      console.log(response.data);
     });
 
     this.$http
@@ -105,19 +98,6 @@ export default {
       .then((response) => {
         this.repositories = response.data;
       });
-
-    axios.post(
-      'https://salve-github-database-default-rtdb.firebaseio.com/userRepositories.json',
-      {}
-    );
-  },
-  beforeUpdate() {
-    const testeOne = Object.values(this.user);
-    const testTwo = Object.values(this.repositories);
-
-    if (testeOne.length > 0 && testTwo.length > 0)
-      this.userRepositories = [...testeOne, ...testTwo];
-    console.log(this.repositories);
   },
 };
 </script>
