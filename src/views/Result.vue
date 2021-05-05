@@ -95,40 +95,34 @@ export default {
   },
   methods: {},
   mounted() {
-    
-      
-   
-      this.$http.get(`users/${this.$route.params.name}`).then((response) => {
-        this.user = response.data;
-        console.log(response.data);
+    this.$http.get(`users/${this.$route.params.name}`).then((response) => {
+      this.user = response.data;
+      console.log(response.data);
     });
 
-      this.$http
-        .get(`users/${this.$route.params.name}/repos`)
-        .then((response) => {
+    this.$http
+      .get(`users/${this.$route.params.name}/repos`)
+      .then((response) => {
         this.repositories = response.data;
-    });
+      });
 
-      axios
-        .post(
-          'https://salve-github-database-default-rtdb.firebaseio.com/userRepositories.json',
-          this.repositories
+    axios
+      .post(
+        'https://salve-github-database-default-rtdb.firebaseio.com/userRepositories.json',
+        this.repositories
       )
-        .then(() => {
-          this.userRepositories.name = '';
-          this.userRepositories.login = '';
-          this.userRepositories.company = '';
-          this.userRepositories.location = '';
-          this.userRepositories.public_repos = '';
-          this.userRepositories.followers = '';
-          this.userRepositories.avatar_url = '';
-          this.userRepositories.name = '';
-          this.userRepositories.description = '';
-          this.userRepositories.watchers = '';
-    });
-
-    
-    
+      .then(() => {
+        this.userRepositories.name = '';
+        this.userRepositories.login = '';
+        this.userRepositories.company = '';
+        this.userRepositories.location = '';
+        this.userRepositories.public_repos = '';
+        this.userRepositories.followers = '';
+        this.userRepositories.avatar_url = '';
+        this.userRepositories.name = '';
+        this.userRepositories.description = '';
+        this.userRepositories.watchers = '';
+      });
   },
   updated() {
     this.userRepositories = [...this.user, ...this.repositories];
