@@ -106,12 +106,10 @@ export default {
         this.repositories = response.data;
       });
 
-    axios
-      .post(
-        'https://salve-github-database-default-rtdb.firebaseio.com/userRepositories.json',
-        this.repositories
-      )
-      .then(() => {});
+    axios.post(
+      'https://salve-github-database-default-rtdb.firebaseio.com/userRepositories.json',
+      {}
+    );
   },
   beforeUpdate() {
     const testeOne = Object.values(this.user);
@@ -119,6 +117,7 @@ export default {
 
     if (testeOne.length > 0 && testTwo.length > 0)
       this.userRepositories = [...testeOne, ...testTwo];
+    console.log(this.repositories);
   },
 };
 </script>
